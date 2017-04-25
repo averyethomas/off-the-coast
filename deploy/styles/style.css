@@ -48,36 +48,57 @@ table {
   border-spacing: 0; }
 
 h1 {
-  font-size: 50px;
-  line-height: 55px;
-  margin: 0;
+  font-size: 35px;
+  line-height: 42px;
+  margin: 0 0 10px;
   font-family: "Noto Serif", serif; }
+  @media all and (min-width: 768px) {
+    h1 {
+      font-size: 50px;
+      line-height: 60px; } }
 
 h2 {
-  font-size: 30px;
-  line-height: 38px;
+  font-size: 24px;
+  line-height: 34px;
   font-weight: 300;
-  font-family: 'Open Sans', sans-serif; }
+  font-family: 'Open Sans', sans-serif;
+  margin: 0 0 10px; }
+  @media all and (min-width: 768px) {
+    h2 {
+      font-size: 30px;
+      line-height: 38px; } }
 
 h3 {
   font-size: 28px;
   line-height: 34px;
   text-align: center;
   font-family: "Noto Serif", serif;
-  font-weight: 700; }
+  font-weight: 700;
+  margin: 0 0 10px; }
 
 h4 {
   text-align: center;
   font-size: 20px;
-  line-height: 26px;
+  line-height: 30px;
   font-weight: 400;
-  font-family: 'Open Sans', sans-serif; }
+  font-family: 'Open Sans', sans-serif;
+  margin: 10px 0; }
 
 p {
   font-size: 16px;
   line-height: 22px;
   font-family: 'Open Sans', sans-serif;
-  font-weight: 300; }
+  font-weight: 300;
+  margin: 0 0 10px; }
+
+a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 0.2s ease-in; }
+  a:hover {
+    border-bottom: 1px solid white;
+    cursor: pointer; }
 
 body {
   margin: 0; }
@@ -137,16 +158,17 @@ body {
   width: 100%;
   text-align: center;
   height: 100vh;
-  background: url("http://thecasualperfectionist.com/wp-content/uploads/2012/01/Beach-view-from-the-ocean.jpg") no-repeat 50% 50%;
   background-size: cover;
   color: white;
   position: relative; }
   .hero .hero-text {
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%); }
+  .hero#first {
+    background: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.1)), url("../images/ocean.jpg") no-repeat 50% 50%; }
 
 .video {
   width: 100%;
@@ -180,7 +202,6 @@ body {
         float: right; } }
 
 .image {
-  background: url(http://www.drodd.com/images10/beach-pictures30.jpg) no-repeat 50% 50%;
   background-size: cover;
   height: 100vh;
   position: relative;
@@ -192,3 +213,9 @@ body {
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%); }
+  .image#third {
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://scontent-atl3-1.cdninstagram.com/t51.2885-15/e35/15538438_225538987891630_7112762306588573696_n.jpg") no-repeat 50% 50%;
+    background-size: cover; }
+  .image#eigth {
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../images/fishing-06.jpg") no-repeat 50% 50%;
+    background-size: cover; }
