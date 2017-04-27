@@ -188,13 +188,13 @@ body {
     .writing {
       margin-top: 0; } }
   .writing .text-left {
-    padding: 20px 50px;
+    padding: 30px 50px;
     background-color: rgba(255, 255, 255, 0.75); }
     @media all and (min-width: 768px) {
       .writing .text-left {
         width: calc(50% - 100px); } }
   .writing .text-right {
-    padding: 20px 50px;
+    padding: 30px 50px;
     background-color: rgba(255, 255, 255, 0.75); }
     @media all and (min-width: 768px) {
       .writing .text-right {
