@@ -2,50 +2,57 @@ doctype html
 html
 	include includes/header.pug
 
-	div.container(ng-app="sharkApp" ng-controller="mainCtrl")
+	div.container(ng-app="sharkApp" ng-controller="mainCtrl" scroll)
 		div.gallery
 			ul
-				li(style="background-image: url(http://www.livescience.com/images/i/000/084/401/original/great-white-shark.jpeg?interpolation=lanczos-none&downsize=*:600)")
-				li(style="background-image: url(images/fishing-09.jpg)")
+				li#firstGallery.active
+				li#secondGallery
+
 		div.nav
 			ul
 				li(ng-repeat="item in navItems")
-					a.nav-item(ng-href="#{{item.link}}") 
+					a.nav-item(data-ng-click="scrollTo(item.link)"  ng-class="{active: $index == activePanel}") 
 		div.hero.panel#first
 			div.hero-text
 				h1 Off the Coast of the Carolinas
-				h2 The Migration of Great White Shark in the Mid to Southern Atlantic
-		div.video.panel#second
-			iframe(src="https://player.vimeo.com/video/214848340" webkitallowfullscreen allowfullscreen mozallowfullscreen)
-		div.image.panel#third
+				h2 The Migration of Great White Sharks in the Mid to Southern Atlantic
+		div.image.panel#second
 			div.panel-text
 				h3 Fishing for Research
-				p Chip Michalove runs Outcast Sport Fishing, a charter fishing comapny out of Hilton Head Island, South Carolina. After he began catching Great White Sharks in the area, he connected with scientists at the Atlantic White Shark Conservancy to tag and get DNA samples for their research. Michalove does all of his expeditions for Great White Sharks on his own dime.
-		div.video.panel#fourth
-			iframe(src="https://player.vimeo.com/video/214848552" webkitallowfullscreen allowfullscreen mozallowfullscreen)
-		div.writing.panel#fifth
+				p Chip Michalove runs Outcast Sport Fishing, a charter fishing comapny out of Hilton Head Island, South Carolina. After he began catching great white sharks in the area, he connected with scientists at the Atlantic White Shark Conservancy to tag and get DNA samples for their research. Michalove does all of his expeditions for great white sharks on his own dime.
+		div.video.panel#third
+			iframe(src="https://player.vimeo.com/video/215451546" webkitallowfullscreen allowfullscreen mozallowfullscreen)
+		div.writing.panel#fourth
 			div.text-left
 				h3 Heading South
 				h4.bgChange#subHead1 Time of Year
-				p Michalove spotted his first Great White Shark off the coast of South Carolina in late January. While tracking great white sharks in the US Atlantic is still realatively new, Chip estimates that they come to the Carolinas in early December and stay until through March. He has not been able to tag one after mid-March to date.
+				p Michalove spotted his first great white shark off the coast of South Carolina in late January. While tracking great white sharks in the US Atlantic is still realatively new, Chip estimates that they come to the Carolinas in early December and stay until the middle of March. He has not been able to tag one past March yet.
 				h4.bgChange#subHead2 Water Temperature
-				p Fusce elementum id lorem laoreet mollis. Donec vestibulum porttitor vestibulum. Sed consequat dictum ligula, vel posuere ligula ultrices id. Quisque dictum, lorem a ornare ullamcorper, sem nunc sagittis enim, eget laoreet elit justo at sapien. Integer tincidunt erat neque, eget consequat justo ornare sed. Fusce lorem ipsum, congue id volutpat ac, blandit eget urna. Suspendisse gravida velit rutrum luctus molestie. Pellentesque sit amet metus quis sem venenatis condimentum. Donec justo purus, cursus vitae quam eget, blandit volutpat nulla. Donec dictum sagittis augue vitae sollicitudin.
+				p Great white sharks differ from most with their ability to regulate their body temperature. While most sharks are ectothermic, great white sharks are endothermic and can elevate their body temperature above the average water temperature that surrounds them.   
+				p While their unique ability to regulate body temperature allows them to hunt effectively in cool waters, they tend to stay in temperate waters, between 50 &deg;F and 69.8 &deg;F. As the temperature of the water cools off the coast in the Northeastern United States, the sharks migrate South into the Carolinas, Georgia and Florida. 
 				h4.bgChange#subHead3 Food Supply
-				p According to the Atlantic White Shark Conservancy, Great White Sharks can weigh up to 4,000 pounds and can be as long as 20 feet.
+				p According to the Atlantic White Shark Conservancy, great white sharks can weigh up to 4,000 pounds and can be as long as 20 feet.
 				p As with most animals, their diet changes with age. As the sharks mature, they tend to stop feeding on fish to more "active prey." While in the Northeastern Atlantic, the active prey is likely seals, Michalove guesses that in the South they are feeding on the migrating right whales, dolphins, sea turtles and maybe even manatee. During one tagging expedition, a shark that Michalove was tagging threw up beside the boat. "It was not like anything I had ever smelled before," said Michalove. He guessed that it was a dolphin or perhaps a seal, but it was "definitely not another fish." 
-				p However, they are considered to be "selective and efficient predators" by the Atlantic White Shark Conservancy. They will eat about anything that is large enough to satisfy their appetite.
-		div.video.panel#sixth
-			iframe(src="https://player.vimeo.com/video/187040716" webkitallowfullscreen allowfullscreen mozallowfullscreen)
-		div.writing.panel#seventh
+				p They are considered to be "selective and efficient predators" by the Atlantic White Shark Conservancy. Great white sharks tend to eat animals and fish large enough to satisfy their appetite.
+				img(src="images/fishing-03.jpg")
+		div.video.panel#fifth
+			iframe(src="https://player.vimeo.com/video/214848552" webkitallowfullscreen allowfullscreen mozallowfullscreen)
+		div.writing.panel#sixth
 			div.text-right
 				h3 Caring for the Giants
-				h4 Some SubHeader
-				p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi porta velit tortor, eget eleifend mi imperdiet et. Mauris mi purus, finibus sed vehicula vitae, porttitor nec sem. Duis eget elit tellus. In vel sagittis metus. Proin sollicitudin urna sed tortor vulputate, et mollis enim consectetur. Proin non lacinia turpis. Vestibulum non ex nec ante semper sollicitudin. Proin in accumsan lorem. Morbi purus justo, egestas vel elit ac, viverra ultrices augue. Quisque at nunc tincidunt quam consectetur sollicitudin. Suspendisse sem magna, rutrum vel rutrum ac, iaculis eu purus. Phasellus luctus ultrices odio, sit amet ultricies purus bibendum ut. Curabitur ac augue dapibus, posuere odio at, ullamcorper purus. Phasellus venenatis urna mi, eu ultrices diam ullamcorper in. Ut mollis risus id est placerat tempor.
-				h4 Some SubHeader
-				p Fusce elementum id lorem laoreet mollis. Donec vestibulum porttitor vestibulum. Sed consequat dictum ligula, vel posuere ligula ultrices id. Quisque dictum, lorem a ornare ullamcorper, sem nunc sagittis enim, eget laoreet elit justo at sapien. Integer tincidunt erat neque, eget consequat justo ornare sed. Fusce lorem ipsum, congue id volutpat ac, blandit eget urna. Suspendisse gravida velit rutrum luctus molestie. Pellentesque sit amet metus quis sem venenatis condimentum. Donec justo purus, cursus vitae quam eget, blandit volutpat nulla. Donec dictum sagittis augue vitae sollicitudin.
+				h4 Goals of Research
+				p Fishermen like Michalove and organizations like the Atlantic White Shark Conservancy aim to keep sharks safe. They do so by gaining as much information as possible throughout the year so that if this species were to become endangered they would know what to do to save them.
+				p Another major priority is education. Public support for wildlife protection is crucial to keeping this species cared for. Great white sharks are already on the "vulnerable" list as shark numbers decrease annually and these advocates are fighting to keep them safe.
+				img(src="images/fishing-01.jpeg")
+				h4 Tagging Practices
+				p When Michalove first started catching great white sharks, he got in touch with OCEARCH, a research and data organization that also tags great white sharks as well as some other large species. They gained popularity in South Carolina with the tagging of "Mary Lee" a shark that can frequently be seen of the coast of South Carolina on the OCEARH online tracker.
+				p While the goals of OCEARCH seem to align with that of Michalove, he has noticed some issues in their tagging practices. Michalove is able to catch, tag and release great white sharks off the side of his 27-foot boat with a three man crew. OCEARCH has a large team and pull each shark out of the water to tag them. They also use a hook that is exponentially larger than what Michalove uses. 
+				img(src="images/fishing-04.jpg")
+				p Michalove argued that OCEARCH is doing good work but needs to update their practices to leave the sharks in the water and use smaller hook sizes to minimize the trauma for the sharks so they can gain the best information about them.
+		div.video.panel#seventh
+			iframe(src="https://player.vimeo.com/video/215452224" webkitallowfullscreen allowfullscreen mozallowfullscreen)
 		div.image.panel#eigth
 			div.panel-text
 				h3 Thank You
 				p Chip Michalove at <a href="http://www.outcastfishing.com/" target="_blank">Outcast Sport Fishing</a>
 				p <a href="http://www.atlanticwhiteshark.org/" target="_blank">Atlantic White Shark Conservancy</a>
-				p Tim Curtis Jr.

@@ -83,7 +83,7 @@ h3{
   text-align: center;
   font-family: "Noto Serif", serif;
   font-weight: 700;
-    margin: 0 0 10px;
+    margin: 0px 0 10px;
 
 }
 h4{
@@ -92,7 +92,7 @@ h4{
   line-height: 30px;
   font-weight: 400;
   font-family: 'Open Sans', sans-serif;
-  margin: 10px 0;
+  margin: 20px 0 10px;
 
 }
 p{
@@ -123,10 +123,15 @@ body{
   height: 100vh;
   z-index: 20;
   width: 50px;
-  right: 12px;
+  right: 0;
   margin: 0;
   padding: 0;
   top: 0;
+  
+  @include responsive(tablet){
+    right: 12px;
+  }
+  
   ul{
     position: absolute;
     right: 0;
@@ -138,7 +143,7 @@ body{
         width: 13px;
         height: 13px;
         display: block;
-        margin: 20px 10px; 
+        margin: 15px 10px; 
         border-radius: 12px;
         border: 2px solid #fff;
         background-color: rgba(255,255,255,0.25);
@@ -174,8 +179,20 @@ body{
       height: 100vh;
       width: 100%;
       // visibility: hidden;
-      // opacity: 0;
+      opacity: 0;
       transition: all 0.4s ease-in;
+      
+      &.active{
+        opacity: 1;
+      }
+      
+      &:first-of-type{
+        background-image: url(../images/fishing-09.jpg)
+      }
+      
+       &:last-of-type{
+        background-image: url(../images/fishing-05.png)
+      }
     }
   }
 }
@@ -192,6 +209,7 @@ body{
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 65%;
   }
   
   &#first{
@@ -214,10 +232,10 @@ body{
 }
 .writing{
   overflow: hidden;
-  margin-top: 400px;
+  padding-top: 400px;
   
   @media all and (min-width: 768px){
-    margin-top: 0;
+    padding-top: 0;
   }
   .text-left{
     padding: 30px 50px;
@@ -225,6 +243,13 @@ body{
    
     @media all and (min-width: 768px){
       width: calc(50% - 100px);
+      max-width: 600px;
+    }
+    
+    img{
+      display: block;
+      width: 50%;
+      margin: 20px auto;
     }
   }
   .text-right{
@@ -233,7 +258,14 @@ body{
    
     @media all and (min-width: 768px){
       width: calc(50% - 100px);
+      max-width: 600px;
       float: right;
+    }
+    
+    img{
+      display: block;
+      width: 50%;
+      margin: 20px auto;
     }
   }
 }
@@ -245,11 +277,12 @@ body{
   color: white;
   .panel-text{
     position: absolute;
+    width: 75%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
-  &#third{
+  &#second{
     background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('https://scontent-atl3-1.cdninstagram.com/t51.2885-15/e35/15538438_225538987891630_7112762306588573696_n.jpg') no-repeat 50% 50%;
     background-size: cover;
   }

@@ -1,6 +1,39 @@
 var app = angular.module('sharkApp', []);
+var activeNav = 0;
 
-app.controller('mainCtrl', ['$scope', '$window', function($scope, $window){
+
+app.directive("scroll", function ($window) {
+    return {
+        scope: true,
+        link: function(scope, element, attrs) {
+            angular.element($window).bind("scroll", function() {
+              
+                var secondGalItemShow = document.getElementById("sixth").offsetTop;
+    
+                if(this.scrollY >= secondGalItemShow - 100) {
+                    document.getElementById('secondGallery').className = 'active';
+                } else{
+                    document.getElementById('secondGallery').classList.remove('active')
+                }
+                
+                for (i = 0; i < scope.navItems.length; i++) {
+                    if (this.scrollY >= scope.navItems[scope.navItems.length - 1].position) {
+                        scope.$apply(function(){
+                            scope.activePanel = i;
+                        })
+                    } else if (this.scrollY >= scope.navItems[i].position && this.scrollY < scope.navItems[i + 1].position){
+                        scope.$apply(function(){
+                            scope.activePanel = i;
+                        })
+                    }
+                }
+            
+            });
+        }
+    };
+});
+
+app.controller('mainCtrl', ['$scope', '$window', '$location', '$anchorScroll', function($scope, $window, $location, $anchorScroll){
   
   $scope.panels = document.getElementsByClassName('panel');
   $scope.navItems = [];
@@ -11,48 +44,11 @@ app.controller('mainCtrl', ['$scope', '$window', function($scope, $window){
    
   });
   
-  console.log($scope.navItems);
-
-  $scope.active = $scope.navItems[0];
-  
-  $scope.findActiveNav = function(){
-    
-    
+  $scope.activePanel = 0;
  
-  };
-  
-  angular.element($window).bind('scroll', function(){
-    
-    $scope.scrollPos = $window.pageYOffset;
-    
-    
-//     if($scope.scrollPos < 100){
-//         console.log('test');
-//     } else if($scope.scrollPos > 100){
-//       console.log('bigger')
-//     }
-    if($scope.scrollPos < $scope.navItems[6].position){
-      console.log('notActive');
-    }else{
-      console.log('active');
-    }
-    
-    //console.log($scope.scrollPos);
-    
-  });
-
-  
-  
-//   $scope.bgChangePanels = document.getElementsByClassName('bgChange');
-//   $scope.bgChange = [];
-  
-//   angular.forEach($scope.bgChangePanels, function(value){
-//     $scope.bgChange.push(value.id)
-//   });
-  
-//   console.log(document.getElementById($scope.bgChange[1]).offsetTop);
-  
-  
+   $scope.scrollTo = function(id) {
+      $location.hash(id);
+      $anchorScroll();
+   };
 
 }]);
-
